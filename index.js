@@ -73,38 +73,43 @@ let defaultRules = (config, props) => {
     ]
   });
 
-  rules.js = () => ({
+  rules.js = (options = {}) => ({
     test: /\.jsx?$/,
     exclude: /node_modules/,
-    loader: defaultLoaders.babel
+    loader: defaultLoaders.babel,
+    ...options
   });
 
-  rules.ts = () => ({
+  rules.ts = (options = {}) => ({
     test: /\.[tj]sx?$/,
     exclude: /node_modules/,
-    loader: defaultLoaders.babel
+    loader: defaultLoaders.babel,
+    ...options
   });
 
-  rules.html = () => ({
+  rules.html = (options = {}) => ({
     test: /\.html$/,
     loader: 'html-loader',
     options: {
       minimize: !props.dev
-    }
+    },
+    ...options
   });
 
-  rules.files = () => ({
+  rules.files = (options = {}) => ({
     test: /\.(png|jpg|gif|svg|eot|ttf)$/,
-    loader: 'file-loader'
+    loader: 'file-loader',
+    ...options
   });
 
-  rules.fonts = () => ({
+  rules.fonts = (options = {}) => ({
     test: /\.(woff(2)?|eot|ttf)$/,
     loader: 'file-loader',
     options: {
       name: '[name].[ext]',
       outputPath: 'fonts/'
-    }
+    },
+    ...options
   })
 
   return rules;
