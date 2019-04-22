@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
+const path = require('path');
 
 let defaultLoaders = {};
 
@@ -123,10 +124,10 @@ const buildConfig = configuration => (env, argv) => {
 
   let config = {
     mode: props.dev ? 'development' : 'production',
-    entry: './src/index.js',
+    entry: path.resolve(__dirname, 'src', 'index.js'),
     target: 'web',
     output: {
-      path: __dirname + '/dist',
+      path: path.resolve(__dirname, 'dist'),
       filename: props.dev ? '[name].js' : '[name].[chunkhash:8].js',
       publicPath: '/'
     },
