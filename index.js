@@ -124,9 +124,11 @@ const buildConfig = configuration => (env, argv) => {
   let config = {
     mode: props.dev ? 'development' : 'production',
     entry: './src/index.js',
+    target: 'web',
     output: {
       path: __dirname + '/dist',
       filename: props.dev ? '[name].js' : '[name].[chunkhash:8].js',
+      publicPath: '/'
     },
     module: {
       rules: []
