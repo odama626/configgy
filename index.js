@@ -98,7 +98,7 @@ let defaultRules = (config, props) => {
   });
 
   rules.files = (options = {}) => ({
-    test: /\.(png|jpg|gif|svg|eot|ttf)$/,
+    test: /\.(png|jpg|gif|eot|ttf)$/,
     loader: 'file-loader',
     ...options
   });
@@ -109,6 +109,15 @@ let defaultRules = (config, props) => {
     options: {
       name: '[name].[ext]',
       outputPath: 'fonts/'
+    },
+    ...options
+  });
+
+  rules.svg = (options = {}) => ({
+    test: /\.svg$/,
+    loader: 'svg-inline-loader',
+    options: {
+      removeTags: true
     },
     ...options
   })
