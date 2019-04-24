@@ -98,7 +98,7 @@ let defaultRules = (config, props) => {
   });
 
   rules.files = (options = {}) => ({
-    test: /\.(png|jpg|gif|eot|ttf)$/,
+    test: /\.(png|jpg|gif|eot|svg|ttf)$/,
     loader: 'file-loader',
     ...options
   });
