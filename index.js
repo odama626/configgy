@@ -133,10 +133,10 @@ const buildConfig = configuration => (env, argv) => {
 
   let config = {
     mode: props.dev ? 'development' : 'production',
-    entry: path.resolve(__dirname, 'src', 'index.js'),
+    entry: path.resolve('.', 'src', 'index.js'),
     target: 'web',
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve('.', 'dist'),
       filename: props.dev ? '[name].js' : '[name].[chunkhash:8].js',
       publicPath: '/'
     },
